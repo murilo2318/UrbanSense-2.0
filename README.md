@@ -91,7 +91,7 @@ Durante o desenvolvimento, testamos dois brokers públicos antes de chegar à so
 **HiveMQ (`broker.hivemq.com`)**  
 Era nossa primeira escolha por ser amplamente usado em projetos IoT. Porém, o ambiente de simulação do Wokwi (plano gratuito) não permite conexões externas à internet sem a ativação de um **Gateway Privado** (recurso pago). Ao tentar conectar, o Wokwi exibiu a mensagem *"Ativar Gateway Privado"*, bloqueando a comunicação com o broker.
 
-**Mosquitto (`test.mosquitto.org`)**  
+**Mosquitto (`broker.wokwi.com`)**  
 Após o problema com o HiveMQ, migramos para o broker público da Mosquitto. Este broker é compatível com o ambiente do Wokwi e não exige gateway privado, permitindo a publicação dos dados via MQTT normalmente na simulação.
 
 > Em um ambiente de produção com ESP32 físico ou com o Gateway Privado do Wokwi ativado, o HiveMQ funcionaria sem problemas, pois o código original foi desenvolvido para ele.

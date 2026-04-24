@@ -16,7 +16,7 @@ const char* WIFI_SSID = "Wokwi-GUEST";
 const char* WIFI_PASS = "";
 
 // ── MQTT (HiveMQ público) ───────────────────────────────────
-const char* MQTT_BROKER   = "test.mosquitto.org";
+const char* MQTT_BROKER   = "broker.wokwi.com";
 const int   MQTT_PORT     = 1883;
 const char* MQTT_CLIENT   = "urbansense-no1-fiap";
 const char* MQTT_TOPIC    = "urbansense/no1/dados";

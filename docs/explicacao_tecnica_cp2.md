@@ -40,7 +40,7 @@
 ## Protocolo MQTT
 
 - **Biblioteca:** `PubSubClient`
-- **Broker:** `test.mosquitto.org` (Mosquitto público, gratuito, sem autenticação)
+- **Broker:** `broker.wokwi.com` (Mosquitto público, gratuito, sem autenticação)
 - **Porta:** `1883` (TCP padrão MQTT)
 - **Client ID:** `urbansense-no1-fiap`
 - **Tópico de publicação:** `urbansense/no1/dados`
@@ -109,4 +109,4 @@ O Serial Monitor exibe logs organizados em três blocos:
 
 Para verificar as mensagens publicadas no broker, acesse o **HiveMQ Websocket Client**:  
 🔗 https://www.hivemq.com/demos/websocket-client/  
-- Broker: `test.mosquitto.org` | Porta: `8884` | Tópico: `urbansense/no1/dados`
+- Broker: `broker.wokwi.com` | Porta: `8884` | Tópico: `urbansense/no1/dados`
