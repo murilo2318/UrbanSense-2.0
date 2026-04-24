@@ -66,7 +66,7 @@ UrbanSense-2.0/
 │   ├── circuito-ok.png             # Circuito em estado OK
 │   ├── circuito-aviso.png          # Circuito em estado AVISO
 │   ├── circuito-critico.png        # Circuito em estado CRITICO
-│   └── mqtt-publicacao.png         # Evidência de publicação MQTT (CP2)
+│   └── mqtt-publicacao.jpg         # Evidência de publicação MQTT (CP2)
 ├── docs/
 │   └── explicacao_tecnica_cp2.md   # Explicação técnica CP2
 ├── diagram.json                    # Diagrama do circuito Wokwi (CP2)
