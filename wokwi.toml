@@ -1,7 +1,6 @@
 [wokwi]
 version = 1
 elf = src/urbansense_cp2.ino
-firmware = src/urbansense_cp2.ino
 
 [[library]]
 name = "DHT sensor library"
