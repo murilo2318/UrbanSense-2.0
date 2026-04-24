@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-elf = sketch.elf
-firmware = sketch.bin
