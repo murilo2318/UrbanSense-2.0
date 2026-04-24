@@ -70,6 +70,7 @@ UrbanSense-2.0/
 ├── docs/
 │   └── explicacao_tecnica_cp2.md   # Explicação técnica CP2
 ├── diagram.json                    # Diagrama do circuito Wokwi (CP2)
+├── wokwi.toml                      # Configuração de bibliotecas Wokwi
 └── README.md
 ```
 
@@ -82,16 +83,23 @@ UrbanSense-2.0/
 
 ---
 
-## Decisões Técnicas e Problemas Encontrados
+## Limitações Encontradas e Decisões Técnicas
 
-### Broker MQTT — Por que usamos o Mosquitto?
+### Simulação no Wokwi (plano gratuito)
 
-Durante o desenvolvimento, testamos dois brokers públicos antes de chegar à solução final:
+O ambiente de simulação do Wokwi no plano gratuito **não permite conexões externas à internet** sem a ativação de um Gateway Privado (recurso pago). Por isso, durante os testes no simulador, o ESP32 conecta no WiFi mas não consegue alcançar brokers MQTT externos como `broker.hivemq.com` ou `test.mosquitto.org`.
 
-**HiveMQ (`broker.hivemq.com`)**  
-Era nossa primeira escolha por ser amplamente usado em projetos IoT. Porém, o ambiente de simulação do Wokwi (plano gratuito) não permite conexões externas à internet sem a ativação de um **Gateway Privado** (recurso pago). Ao tentar conectar, o Wokwi exibiu a mensagem *"Ativar Gateway Privado"*, bloqueando a comunicação com o broker.
+Testamos três brokers diferentes:
+- `broker.hivemq.com` — bloqueado pelo Wokwi (requer Gateway Privado)
+- `test.mosquitto.org` — bloqueado pelo Wokwi (requer Gateway Privado)
+- `broker.wokwi.com` — bloqueado pelo Wokwi (requer Gateway Privado)
 
-**Mosquitto (`broker.wokwi.com`)**  
-Após o problema com o HiveMQ, migramos para o broker público da Mosquitto. Este broker é compatível com o ambiente do Wokwi e não exige gateway privado, permitindo a publicação dos dados via MQTT normalmente na simulação.
+A evidência de funcionamento do MQTT foi gerada via **HiveMQ Websocket Client** (`https://www.hivemq.com/demos/websocket-client/`), que permite visualizar as mensagens publicadas no broker diretamente pelo navegador.
 
-> Em um ambiente de produção com ESP32 físico ou com o Gateway Privado do Wokwi ativado, o HiveMQ funcionaria sem problemas, pois o código original foi desenvolvido para ele.
+### Ambiente Local (Mac)
+
+Não foi possível instalar o Ubuntu via WSL (`wsl --install ubuntu`) pois esse recurso é **exclusivo do Windows**. Em sistemas macOS, o equivalente seria usar uma máquina virtual ou o terminal nativo. Por esse motivo, todo o desenvolvimento foi realizado diretamente no simulador Wokwi e via repositório GitHub, sem dependência de ambiente Linux local.
+
+### Código
+
+O código foi desenvolvido para funcionar corretamente em um **ESP32 físico** ou no Wokwi com Gateway Privado ativado, onde a conexão MQTT com o `broker.hivemq.com` funcionaria sem restrições.
