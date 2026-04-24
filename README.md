@@ -85,7 +85,7 @@ UrbanSense-2.0/
 
 ## Limitações Encontradas e Decisões Técnicas
 
-### Simulação no Wokwi (plano gratuito)
+### Simulação no Wokwi
 
 O ambiente de simulação do Wokwi no plano gratuito **não permite conexões externas à internet** sem a ativação de um Gateway Privado (recurso pago). Por isso, durante os testes no simulador, o ESP32 conecta no WiFi mas não consegue alcançar brokers MQTT externos como `broker.hivemq.com` ou `test.mosquitto.org`.
 
@@ -99,7 +99,3 @@ A evidência de funcionamento do MQTT foi gerada via **HiveMQ Websocket Client**
 ### Ambiente Local (Mac)
 
 Não foi possível instalar o Ubuntu via WSL (`wsl --install ubuntu`) pois esse recurso é **exclusivo do Windows**. Em sistemas macOS, o equivalente seria usar uma máquina virtual ou o terminal nativo. Por esse motivo, todo o desenvolvimento foi realizado diretamente no simulador Wokwi e via repositório GitHub, sem dependência de ambiente Linux local.
-
-### Código
-
-O código foi desenvolvido para funcionar corretamente em um **ESP32 físico** ou no Wokwi com Gateway Privado ativado, onde a conexão MQTT com o `broker.hivemq.com` funcionaria sem restrições.
