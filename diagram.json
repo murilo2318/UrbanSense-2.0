@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "author": "UrbanSense CP2",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 180,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 60,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 200,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_amarelo",
+      "top": 60,
+      "left": 560,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_vermelho",
+      "top": 160,
+      "left": 560,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 80,
+      "left": 480,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 180,
+      "left": 480,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 380,
+      "left": 160,
+      "attrs": { "pins": "i2c", "address": "0x27" }
+    }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+
+    ["dht1:VCC", "esp:3V3", "red", []],
+    ["dht1:GND", "esp:GND.1", "black", []],
+    ["dht1:SDA", "esp:D4", "green", []],
+
+    ["ldr1:VCC", "esp:3V3", "red", []],
+    ["ldr1:GND", "esp:GND.1", "black", []],
+    ["ldr1:AO",  "esp:D34", "orange", []],
+
+    ["esp:D5", "r1:1", "yellow", []],
+    ["r1:2", "led_amarelo:A", "yellow", []],
+    ["led_amarelo:C", "esp:GND.2", "black", []],
+
+    ["esp:D2", "r2:1", "red", []],
+    ["r2:2", "led_vermelho:A", "red", []],
+    ["led_vermelho:C", "esp:GND.2", "black", []],
+
+    ["esp:D21", "lcd1:SDA", "blue", []],
+    ["esp:D22", "lcd1:SCL", "purple", []],
+    ["lcd1:VCC", "esp:3V3", "red", []],
+    ["lcd1:GND", "esp:GND.2", "black", []]
+  ],
+  "dependencies": {
+    "DHT sensor library": "2.1.2",
+    "LiquidCrystal I2C": "1.1.2",
+    "PubSubClient": "2.8.0",
+    "ArduinoJson": "6.21.3"
+  }
+}

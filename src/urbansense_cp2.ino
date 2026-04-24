@@ -1,15 +1,3 @@
-// ============================================================
-//  UrbanSense - CP2
-//  Nó sensor ESP32 com DHT22 + LDR + WiFi + MQTT (HiveMQ)
-//  Curso: Tecnólogo em IA - FIAP
-//  Integrantes:
-//    Nicolas Lemos Ribeiro    - RM 553273
-//    Ricardo de Paiva Melo   - RM 565522
-//    Luís Fernando O. Salgado- RM 561401
-//    Pedro Leal Murad        - RM 565460
-//    Murilo Benhossi         - RM 562358
-// ============================================================
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <DHT.h>
