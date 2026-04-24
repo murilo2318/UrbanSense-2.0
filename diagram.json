@@ -1,51 +1,88 @@
 {
   "version": 1,
-  "author": "UrbanSense CP2 - Murilo Benhossi",
+  "author": "UrbanSense CP2",
   "editor": "wokwi",
-
   "parts": [
-
-    { "id": "esp",         "type": "wokwi-esp32-devkit-v1",     "top": 200, "left": 260, "attrs": {} },
-
-    { "id": "dht22",       "type": "wokwi-dht22",               "top":  40, "left":   0, "attrs": {} },
-
-    { "id": "ldr",         "type": "wokwi-photoresistor-sensor", "top": 220, "left":   0, "attrs": {} },
-
-    { "id": "led_aviso",   "type": "wokwi-led",                 "top":  40, "left": 580, "attrs": { "color": "yellow" } },
-    { "id": "r_aviso",     "type": "wokwi-resistor",            "top":  60, "left": 500, "attrs": { "value": "220" } },
-
-    { "id": "led_critico", "type": "wokwi-led",                 "top": 160, "left": 580, "attrs": { "color": "red" } },
-    { "id": "r_critico",   "type": "wokwi-resistor",            "top": 180, "left": 500, "attrs": { "value": "220" } },
-
-    { "id": "lcd",         "type": "wokwi-lcd1602",             "top": 440, "left": 160, "attrs": { "pins": "i2c", "address": "0x27" } }
-
+    {
+      "id": "esp",
+      "type": "wokwi-esp32-devkit-v1",
+      "top": 160,
+      "left": 220,
+      "attrs": {}
+    },
+    {
+      "id": "dht22",
+      "type": "wokwi-dht22",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "id": "ldr",
+      "type": "wokwi-photoresistor-sensor",
+      "top": 200,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "id": "led_amarelo",
+      "type": "wokwi-led",
+      "top": 0,
+      "left": 560,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "id": "r_amarelo",
+      "type": "wokwi-resistor",
+      "top": 20,
+      "left": 470,
+      "attrs": { "value": "220" }
+    },
+    {
+      "id": "led_vermelho",
+      "type": "wokwi-led",
+      "top": 120,
+      "left": 560,
+      "attrs": { "color": "red" }
+    },
+    {
+      "id": "r_vermelho",
+      "type": "wokwi-resistor",
+      "top": 140,
+      "left": 470,
+      "attrs": { "value": "220" }
+    },
+    {
+      "id": "lcd",
+      "type": "wokwi-lcd1602",
+      "top": 420,
+      "left": 130,
+      "attrs": { "pins": "i2c", "address": "0x27" }
+    }
   ],
-
   "connections": [
-
     ["esp:TX", "$serialMonitor:RX", "", []],
     ["esp:RX", "$serialMonitor:TX", "", []],
 
-    ["dht22:VCC", "esp:3V3",    "red",   []],
-    ["dht22:GND", "esp:GND.1",  "black", []],
-    ["dht22:SDA", "esp:4",      "green", []],
+    ["dht22:VCC", "esp:3V3", "red", []],
+    ["dht22:GND", "esp:GND.1", "black", []],
+    ["dht22:SDA", "esp:4", "green", []],
 
-    ["ldr:VCC",   "esp:3V3",    "red",    []],
-    ["ldr:GND",   "esp:GND.1",  "black",  []],
-    ["ldr:AO",    "esp:34",     "orange", []],
+    ["ldr:VCC", "esp:3V3", "red", []],
+    ["ldr:GND", "esp:GND.1", "black", []],
+    ["ldr:AO", "esp:34", "orange", []],
 
-    ["esp:5",          "r_aviso:1",     "yellow", []],
-    ["r_aviso:2",      "led_aviso:A",   "yellow", []],
-    ["led_aviso:C",    "esp:GND.2",     "black",  []],
+    ["esp:5", "r_amarelo:1", "yellow", []],
+    ["r_amarelo:2", "led_amarelo:A", "yellow", []],
+    ["led_amarelo:C", "esp:GND.2", "black", []],
 
-    ["esp:2",          "r_critico:1",   "red",   []],
-    ["r_critico:2",    "led_critico:A", "red",   []],
-    ["led_critico:C",  "esp:GND.2",     "black", []],
+    ["esp:2", "r_vermelho:1", "red", []],
+    ["r_vermelho:2", "led_vermelho:A", "red", []],
+    ["led_vermelho:C", "esp:GND.2", "black", []],
 
-    ["esp:21", "lcd:SDA",    "blue",   []],
-    ["esp:22", "lcd:SCL",    "purple", []],
-    ["lcd:VCC", "esp:3V3",   "red",    []],
-    ["lcd:GND", "esp:GND.2", "black",  []]
-
+    ["esp:21", "lcd:SDA", "blue", []],
+    ["esp:22", "lcd:SCL", "purple", []],
+    ["lcd:VCC", "esp:3V3", "red", []],
+    ["lcd:GND", "esp:GND.2", "black", []]
   ]
 }
