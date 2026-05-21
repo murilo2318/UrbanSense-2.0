@@ -9,6 +9,7 @@ Protótipo da plataforma UrbanSense, desenvolvido para os checkpoints da discipl
 - Luís Fernando de Oliveira Salgado - RM 561401
 - Pedro Leal Murad - RM 565460
 - Murilo Benhossi - RM 562358
+- Jonas Alaf - RM 566479
 
 ## Sobre o Projeto
 
